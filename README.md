@@ -1,6 +1,6 @@
 # spotiapi
 A small library for getting convenient and structured information about the Spotify user (currently only about the user who created the app key).
-Last library version - **1.0.1 (release 26.03)**. 
+Last library version - **1.0.1 (release 26.03)**.
 
 ![MIT](https://img.shields.io/github/license/Julheer/spotiapi.svg)
 ![Version](https://img.shields.io/pypi/v/spotiapi)
@@ -24,8 +24,7 @@ print(spotify.getUserData())
 You can find other examples [here](https://github.com/julheer/spotiapi/blob/main/examples), or on the pages of other users who used this repository and pointed this repository out.
 
 ## Todos & plans:
-- [ ] Add unit tests.
-- [ ] Add descriptions for functions in the code.
+- [X] Add descriptions for functions in the code.
 - [X] Fix the error with the names in the `getUserLikedAlbums` and `getUserPlaylists` functions.
 - [ ] Conduct final testing.
 - [ ] Release the latest DEV version (**1.1**).

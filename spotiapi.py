@@ -5,6 +5,10 @@ class SpotifyAPI:
 		self.token = client_token
 
 	def getUserCurrentTrack(self):
+		"""
+		This function returns the current track and the artist that the user is currently listening to.
+		If the user is not listening to anything, the last track they listened to will be returned.
+		"""
 		request_headers = {'Authorization': f'Bearer {self.token}'}
 		request_api = get(url='https://api.spotify.com/v1/me/player/currently-playing', headers=request_headers).json()
 
@@ -19,11 +23,17 @@ class SpotifyAPI:
 
 
 	def getUserLikedAlbums(self):
+		"""
+		The function returns all the albums that the user added to liked, or None if no albums were added.
+		"""
 		request_headers = {'Authorization': f'Bearer {self.token}'}
 		request_api = get(url='https://api.spotify.com/v1/me/albums', headers=request_headers).json()
 
 		try:
 			liked_albums = []
+			if not 'items' in request_api:
+				liked_albums = None
+
 			for album_data in request_api['items']:
 				if album_data['album']['album_type'] != 'album':
 					continue
@@ -36,11 +46,18 @@ class SpotifyAPI:
 
 
 	def getUserPlaylists(self):
+		"""
+		This function returns a list of playlists that the user has created or added to important ones.
+		"""
 		request_headers = {'Authorization': f'Bearer {self.token}'}
 		request_api = get(url='https://api.spotify.com/v1/me/playlists', headers=request_headers).json()
 
 		try:
 			user_playlists = []
+
+			if not 'items' in request_api:
+				user_playlists = None
+
 			for playlist in request_api['items']:
 				user_playlists.append({'name': playlist['name'], 'id': playlist['id']})
 		except:
@@ -50,6 +67,9 @@ class SpotifyAPI:
 
 
 	def getUserData(self):
+		"""
+		This function returns a user data object.
+		"""
 		try:
 			request_headers = {'Authorization': f'Bearer {self.token}'}
 			request_api = get(url='https://api.spotify.com/v1/me', headers=request_headers).json()
