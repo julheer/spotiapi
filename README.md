@@ -26,7 +26,7 @@ You can find other examples [here](https://github.com/julheer/spotiapi/blob/main
 ## Todos & plans:
 - [ ] Add unit tests.
 - [ ] Add descriptions for functions in the code.
-- [ ] Fix the error with the names in the `getUserLikedAlbums` and `getUserPlaylists` functions.
+- [X] Fix the error with the names in the `getUserLikedAlbums` and `getUserPlaylists` functions.
 - [ ] Conduct final testing.
 - [ ] Release the latest DEV version (**1.1**).
 
