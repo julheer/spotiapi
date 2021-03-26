@@ -28,7 +28,7 @@ class SpotifyAPI:
 				if album_data['album']['album_type'] != 'album':
 					continue
 				else:
-					liked_albums.append({album_data['album']['name']: album_data['album']})
+					liked_albums.append({'name': album_data['album']['name'], 'data': album_data['album']})
 		except:
 			raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
 
@@ -42,7 +42,7 @@ class SpotifyAPI:
 		try:
 			user_playlists = []
 			for playlist in request_api['items']:
-				user_playlists.append({playlist['id']: playlist['name']})
+				user_playlists.append({'name': playlist['name'], 'id': playlist['id']})
 		except:
 			raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
 
@@ -55,5 +55,5 @@ class SpotifyAPI:
 			request_api = get(url='https://api.spotify.com/v1/me', headers=request_headers).json()
 		except:
 			raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
-			
+
 		return request_api
