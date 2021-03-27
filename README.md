@@ -23,10 +23,4 @@ print(spotify.getUserData())
 
 You can find other examples [here](https://github.com/julheer/spotiapi/blob/main/examples), or on the pages of other users who used this repository and pointed this repository out.
 
-## Todos & plans:
-- [X] Add descriptions for functions in the code.
-- [X] Fix the error with the names in the `getUserLikedAlbums` and `getUserPlaylists` functions.
-- [X] Conduct final testing.
-- [X] Release the latest DEV version (**1.1**).
-
 © [Julheer](https://github.com/julheer), 2021. Developed with ❤.
