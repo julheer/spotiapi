@@ -10,7 +10,7 @@ setup(name='spotiapi',
       project_urls={
           'Issue tracker': 'https://github.com/julheer/spotiapi/issues',
       },
-      version='1.2.1',
+      version='1.2.2a1',
       packages=['spotiapi'],
       license='MIT',
       description='A small Spotify API that can help  you get the data of the user who issued the token.',
