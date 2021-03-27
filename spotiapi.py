@@ -5,7 +5,6 @@ class SpotifyAPI:
     def __init__(self, client_token):
         self.token = client_token
 
-    @property
     def get_user_player(self):
         """
         This function returns the current track and the artist that the user is currently listening to.
@@ -27,7 +26,6 @@ class SpotifyAPI:
 
         return is_playing, song_artists, request_api['item']['name']
 
-    @property
     def get_liked_albums(self):
         """
         The function returns all the albums that the user added to liked, or None if no albums were added.
@@ -50,7 +48,6 @@ class SpotifyAPI:
 
         return liked_albums
 
-    @property
     def get_playlists(self):
         """
         This function returns a list of playlists that the user has created or added to important ones.
@@ -71,7 +68,6 @@ class SpotifyAPI:
 
         return user_playlists
 
-    @property
     def get_self_user(self):
         """
         This function returns a user data object.
