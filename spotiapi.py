@@ -13,13 +13,17 @@ class SpotifyAPI:
 		request_api = get(url='https://api.spotify.com/v1/me/player/currently-playing', headers=request_headers).json()
 
 		try:
+			is_playing = False
+			if request_api['is_playing']:
+				is_playing = True
+
 			song_artists = []
 			for artist in request_api['item']['artists']:
 				song_artists.append(artist['name'])
 		except:
 			raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
 
-		return song_artists, request_api['item']['name']
+		return is_playing, song_artists, request_api['item']['name']
 
 
 	def getUserLikedAlbums(self):
