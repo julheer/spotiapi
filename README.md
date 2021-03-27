@@ -1,6 +1,6 @@
 # spotiapi
 A small library for getting convenient and structured information about the Spotify user (currently only about the user who created the app key).
-Last library version - **1.1 (release 27.03)**.
+Last library version - **1.2 (release 27.03)**.
 
 ![MIT](https://img.shields.io/github/license/Julheer/spotiapi.svg)
 ![Version](https://img.shields.io/pypi/v/spotiapi)
