@@ -3,9 +3,6 @@ from setuptools import setup
 with open('./README.md') as f:
     readme = f.read()
 
-with open('./version.txt', encoding='UTF-8') as version:
-    package_version = version.read()
-
 
 setup(name='spotiapi',
       author='Julheer',
@@ -13,7 +10,7 @@ setup(name='spotiapi',
       project_urls={
           'Issue tracker': 'https://github.com/julheer/spotiapi/issues',
       },
-      version=package_version,
+      version='1.2.1',
       packages=['spotiapi'],
       license='MIT',
       description='A small Spotify API that can help  you get the data of the user who issued the token.',

@@ -6,11 +6,6 @@ class SpotifyAPI:
         self.token = client_token
 
     @property
-    def get_package_version(self):
-        with open('../version.txt') as version:
-            return version.read()
-
-    @property
     def get_user_player(self):
         """
         This function returns the current track and the artist that the user is currently listening to.
