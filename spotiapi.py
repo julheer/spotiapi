@@ -8,7 +8,9 @@ class SpotifyAPI:
     def get_user_player(self):
         """
         This function returns the current track and the artist that the user is currently listening to.
-        If the user is not listening to anything, the last track they listened to will be returned.
+        Requires the user-read-currently-playing parameter enabled in the Spotify API.
+
+        @return: mixed (tuple)
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
         request_api = get(url='https://api.spotify.com/v1/me/player/currently-playing', headers=request_headers).json()
@@ -29,6 +31,8 @@ class SpotifyAPI:
     def get_liked_albums(self):
         """
         The function returns all the albums that the user added to liked, or None if no albums were added.
+
+        @return: liked albums (list)
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
         request_api = get(url='https://api.spotify.com/v1/me/albums', headers=request_headers).json()
@@ -51,6 +55,9 @@ class SpotifyAPI:
     def get_playlists(self):
         """
         This function returns a list of playlists that the user has created or added to important ones.
+        Requires the playlist-read-private parameter enabled in the Spotify API.
+
+        @return: playlists (list)
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
         request_api = get(url='https://api.spotify.com/v1/me/playlists', headers=request_headers).json()
@@ -71,6 +78,9 @@ class SpotifyAPI:
     def get_self_user(self):
         """
         This function returns a user data object.
+        Requires the user-read-private & user-read-email enabled in the Spotify API.
+
+        @return: user data (json)
         """
         try:
             request_headers = {'Authorization': f'Bearer {self.token}'}
