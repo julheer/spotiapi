@@ -1,6 +1,6 @@
 # spotiapi
 A small library for getting convenient and structured information about the Spotify user (currently only about the user who created the app key).
-Last library version - **1.2.4 (release 27.03)**.
+Last library version - **1.2.5 (release 09.04)**.
 
 ![MIT](https://img.shields.io/github/license/Julheer/spotiapi.svg)
 ![Version](https://img.shields.io/pypi/v/spotiapi)
@@ -18,7 +18,7 @@ Getting information about the user who created the current token:
 from spotiapi import SpotifyAPI
 spotify = SpotifyAPI('spotify_token')
 
-print(spotify.getUserData())
+print(spotify.get_user_data())
 ```
 
 You can find other examples [here](https://github.com/julheer/spotiapi/blob/main/examples), or on the pages of other users who used this repository and pointed this repository out.
