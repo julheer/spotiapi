@@ -1,19 +1,22 @@
-from requests import get
+from http3 import AsyncClient
 
 
-class SpotifyAPI:
-    def __init__(self, client_token):
-        self.token = client_token
+class SpotifyAPIWrapper:
+    def __init__(self, authorization_token: str):
+        self.token = authorization_token
+        self.request_module = AsyncClient()
 
-    def get_user_player(self):
+    async def get_player(self):
         """
         This function returns the current track and the artist that the user is currently listening to.
         Requires the user-read-currently-playing parameter enabled in the Spotify API.
 
-        @return: mixed (tuple)
+        @:return Current Player
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
-        request_api = get(url='https://api.spotify.com/v1/me/player/currently-playing', headers=request_headers).json()
+        request_api = await self.request_module.get(url='https://api.spotify.com/v1/me/player/currently-playing',
+                                                    headers=request_headers)
+        request_api = request_api.json()
 
         try:
             is_playing = False
@@ -26,16 +29,17 @@ class SpotifyAPI:
         except:
             raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
 
-        return is_playing, song_artists, request_api['item']['name']
+        return {'is_playing': is_playing, 'player_artists': song_artists, 'player_name': request_api['item']}
 
-    def get_liked_albums(self):
+    async def get_liked_albums(self):
         """
         The function returns all the albums that the user added to liked, or None if no albums were added.
 
-        @return: liked albums (list)
+        @:return: User Liked Albums
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
-        request_api = get(url='https://api.spotify.com/v1/me/albums', headers=request_headers).json()
+        request_api = await self.request_module.get(url='https://api.spotify.com/v1/me/albums', headers=request_headers)
+        request_api = request_api.json()
 
         try:
             liked_albums = []
@@ -52,15 +56,17 @@ class SpotifyAPI:
 
         return liked_albums
 
-    def get_playlists(self):
+    async def get_playlists(self):
         """
         This function returns a list of playlists that the user has created or added to important ones.
         Requires the playlist-read-private parameter enabled in the Spotify API.
 
-        @return: playlists (list)
+        @:return: User Playlists
         """
         request_headers = {'Authorization': f'Bearer {self.token}'}
-        request_api = get(url='https://api.spotify.com/v1/me/playlists', headers=request_headers).json()
+        request_api = await self.request_module.get(url='https://api.spotify.com/v1/me/playlists',
+                                                    headers=request_headers)
+        request_api = request_api.json()
 
         try:
             user_playlists = []
@@ -75,16 +81,17 @@ class SpotifyAPI:
 
         return user_playlists
 
-    def get_self_user(self):
+    async def get_self(self):
         """
         This function returns a user data object.
         Requires the user-read-private & user-read-email enabled in the Spotify API.
 
-        @return: user data (json)
+        @:return: Self User
         """
         try:
             request_headers = {'Authorization': f'Bearer {self.token}'}
-            request_api = get(url='https://api.spotify.com/v1/me', headers=request_headers).json()
+            request_api = await self.request_module.get(url='https://api.spotify.com/v1/me', headers=request_headers)
+            request_api = request_api.json()
         except:
             raise ValueError('The selected Spotify token is invalid, or an external error occurred on the server.')
 
