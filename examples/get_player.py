@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from asyncio import run
 
-from spotiapi import SpotifyAPIWrapper
+from spotiapi import SpotifyAPI
 
-spotify = SpotifyAPIWrapper('spotify_api_token')
+spotify = SpotifyAPI('spotify_api_token')
 
 
 async def request_data():

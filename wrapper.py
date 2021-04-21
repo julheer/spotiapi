@@ -2,7 +2,7 @@
 from http3 import AsyncClient
 
 
-class SpotifyAPIWrapper:
+class SpotifyAPI:
     def __init__(self, authorization_token: str):
         self.token = authorization_token
         self.request_module = AsyncClient()
