@@ -15,10 +15,22 @@ To install the library, you will need the Python - `pip` package manager. You ca
 ## Examples
 Getting information about the user who created the current token:
 ```python
-from spotiapi import SpotifyAPI
-spotify = SpotifyAPI('spotify_token')
+from asyncio import run
+from spotiapi import SpotifyAPIWrapper
 
-print(spotify.get_user_data())
+spotify = SpotifyAPIWrapper('spotify_api_token')
+
+
+async def request_data():
+    request_self = await spotify.get_self()
+    if 'error' in request_self:
+        return print(f'Something went wrong... ({request_self["code"]})')
+
+    return print(f'Hello, {request_self["display_name"]}!')
+
+if __name__ == '__main__':
+    run(request_data())
+
 ```
 
 You can find other examples [here](https://github.com/julheer/spotiapi/blob/main/examples), or on the pages of other users who used this repository and pointed this repository out.
