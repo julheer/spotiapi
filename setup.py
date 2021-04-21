@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='spotiapi',
-    version='1.2.6a',
+    version='2.0.0',
     author='Julheer',
     author_email='admin@julheer.ru',
     description='A small Spotify API that can help you get the data of the user who issued the token.',

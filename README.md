@@ -1,13 +1,14 @@
 # spotiapi
-A small library for getting convenient and structured information about the Spotify user (currently only about the user who created the app key).
-Last library version - **1.2.5 (release 09.04)**.
+A small library for getting convenient and structured information about the Spotify user (currently only about the user
+who created the app key). Last library version - **2.0.0** (`pip install -U spotiapi==2.0.0`).
 
 ![MIT](https://img.shields.io/github/license/Julheer/spotiapi.svg)
 ![Version](https://img.shields.io/pypi/v/spotiapi)
 
 ## Requirements
-This library requires one additional library: [requests](https://github.com/psf/requests) (versions **2.25.1 and higher**).
-It will be installed automatically when you download my library from PyPI.
+
+This library requires one additional library: [http3](https://github.com/encode/httpx) (versions **>=0.6.7**). It will
+be installed automatically when you download my library from PyPI.
 
 ## Installation
 To install the library, you will need the Python - `pip` package manager. You can install the library by writing a single command - `pip install -U spotiapi`. You can also specify a specific version. Please [check this](https://pypi.org/project/spotiapi) for more information.

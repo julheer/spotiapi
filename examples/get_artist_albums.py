@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from asyncio import run
 
 from spotiapi import SpotifyAPIWrapper
